@@ -7,7 +7,7 @@ lora_dropout=0.05
 
 pretrained_model=../../chinese-llama-7b
 chinese_tokenizer_path=../../chinese-llama-plus-lora-7b
-dataset_dir=../data/train/
+dataset_dir=../data/train/train.json
 per_device_train_batch_size=1
 per_device_eval_batch_size=1
 training_steps=100
