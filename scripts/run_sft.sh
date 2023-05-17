@@ -5,8 +5,8 @@ lora_trainable="q_proj,v_proj,k_proj,o_proj,gate_proj,down_proj,up_proj"
 modules_to_save="embed_tokens,lm_head"
 lora_dropout=0.05
 
-pretrained_model=path/to/hf/llama/or/merged/llama/dir/or/model_id
-chinese_tokenizer_path=path/to/chinese/llama/tokenizer/dir
+pretrained_model=../../chinese-llama-7b
+chinese_tokenizer_path=../../XXXXXXXXXXXXX
 dataset_dir=path/to/sft/data/dir
 per_device_train_batch_size=1
 per_device_eval_batch_size=1
