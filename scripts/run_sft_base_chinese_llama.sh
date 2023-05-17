@@ -17,9 +17,9 @@ output_dir=../my-llama-7b
 validation_file=../data/validate/validate.json
 
 deepspeed_config_file=ds_zero2_no_offload.json
+#    --deepspeed ${deepspeed_config_file} \
 # --modules_to_save ${modules_to_save} \
 torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
-    --deepspeed ${deepspeed_config_file} \
     --model_name_or_path ${pretrained_model} \
     --tokenizer_name_or_path ${chinese_tokenizer_path} \
     --dataset_dir ${dataset_dir} \
