@@ -6,18 +6,18 @@ modules_to_save="embed_tokens,lm_head"
 lora_dropout=0.05
 
 pretrained_model=../../chinese-llama-7b
-chinese_tokenizer_path=../../XXXXXXXXXXXXX
-dataset_dir=path/to/sft/data/dir
+chinese_tokenizer_path=../../chinese-llama-plus-lora-7b
+dataset_dir=../data/train/
 per_device_train_batch_size=1
 per_device_eval_batch_size=1
 training_steps=100
-gradient_accumulation_steps=1
-output_dir=output_dir
-peft_model=path/to/peft/model/dir
-validation_file=validation_file_name
+gradient_accumulation_steps=128
+output_dir=../my-llama-7b
+#peft_model=path/to/peft/model/dir
+validation_file=../data/validate/validate.json
 
 deepspeed_config_file=ds_zero2_no_offload.json
-
+# --modules_to_save ${modules_to_save} \
 torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     --deepspeed ${deepspeed_config_file} \
     --model_name_or_path ${pretrained_model} \
@@ -52,10 +52,8 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     --lora_rank ${lora_rank} \
     --lora_alpha ${lora_alpha} \
     --trainable ${lora_trainable} \
-    --modules_to_save ${modules_to_save} \
     --lora_dropout ${lora_dropout} \
     --torch_dtype float16 \
     --validation_file ${validation_file} \
-    --peft_path ${peft_model} \
     --gradient_checkpointing \
     --ddp_find_unused_parameters False
