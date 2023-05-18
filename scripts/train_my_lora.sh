@@ -17,7 +17,7 @@ output_dir=/notebook/my-llama-7b-lora/20230518
 validation_file=../data/validate/validate.json
 
 deepspeed_config_file=ds_zero2_no_offload.json
-#
+##    --do_eval \
 # --modules_to_save ${modules_to_save} \
 torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     --deepspeed ${deepspeed_config_file} \
@@ -28,7 +28,6 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     --per_device_train_batch_size ${per_device_train_batch_size} \
     --per_device_eval_batch_size ${per_device_eval_batch_size} \
     --do_train \
-    --do_eval \
     --seed $RANDOM \
     --fp16 \
     --max_steps ${training_steps} \
