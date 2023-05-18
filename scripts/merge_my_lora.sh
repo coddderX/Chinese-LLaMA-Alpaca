@@ -1,6 +1,8 @@
 #copy config
+rm -rf /notebook/my-llama-7b-lora/20230518/adapter_config.json
 cp adapter_config.json /notebook/my-llama-7b-lora/20230518
 #重命名为 adapter_model.bin
+rm -rf /notebook/my-llama-7b-lora/20230518/adapter_model.bin
 mv /notebook/my-llama-7b-lora/20230518/pytorch_model.bin /notebook/my-llama-7b-lora/20230518/adapter_model.bin
 
 
