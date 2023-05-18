@@ -10,3 +10,4 @@ cd Chinese-LLaMA-Alpaca
 python -m pip install -r requirements.txt
 cd scripts
 bash merge_chinese_llama.sh
+apt install python3.9-dev
