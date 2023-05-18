@@ -8,4 +8,5 @@ git clone https://huggingface.co/ziqingyang/chinese-llama-lora-7b
 git clone https://github.com/coddderX/Chinese-LLaMA-Alpaca
 cd Chinese-LLaMA-Alpaca
 python -m pip install -r requirements.txt
+cd scripts
 bash merge_chinese_llama.sh
